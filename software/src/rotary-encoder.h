@@ -37,6 +37,11 @@
 
 #define FID_LAST 7
 
+typedef struct {
+	MessageHeader header;
+	bool reset;
+} __attribute__((__packed__)) GetCount;
+
 int32_t update_count(const int32_t value);
 
 void invocation(const ComType com, const uint8_t *data);

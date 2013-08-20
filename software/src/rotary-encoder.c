@@ -51,8 +51,15 @@ const uint8_t smp_length = sizeof(smp);
 void invocation(const ComType com, const uint8_t *data) {
 	simple_invocation(com, data);
 
-	if(((MessageHeader*)data)->fid > FID_LAST) {
+	const uint8_t fid = ((MessageHeader*)data)->fid;
+
+	if(fid > FID_LAST) {
 		BA->com_return_error(data, sizeof(MessageHeader), MESSAGE_ERROR_CODE_NOT_SUPPORTED, com);
+		if(fid == FID_GET_COUNT) {
+			if(((GetCount*)data)->reset) {
+				BC->value[0] = 0;
+			}
+		}
 	}
 }
 
