@@ -42,8 +42,13 @@
 #define LOGGING_LEVEL LOGGING_DEBUG
 #define DEBUG_BRICKLET 0
 
+#define PIN_ENCODER_A      (BS->pin1_ad)
+#define PIN_ENCODER_B      (BS->pin2_da)
+#define PIN_ENCODER_BUTTON (BS->pin3_pwm)
+
 #define SIMPLE_VALUE_TYPE int32_t
 
+#define BRICKLET_VALUE_APPLIED_OUTSIDE
 #define BRICKLET_HAS_SIMPLE_SENSOR
 #define BRICKLET_NO_OFFSET
 #define INVOCATION_IN_BRICKLET_CODE
@@ -65,6 +70,10 @@ typedef struct {
 	int32_t  threshold_min_save[NUM_SIMPLE_VALUES];
 	int32_t  threshold_max_save[NUM_SIMPLE_VALUES];
 	char     threshold_option_save[NUM_SIMPLE_VALUES];
+
+	uint8_t encoder_value_last;
+	int32_t encoder_value_count;
+	bool pressed;
 
 	uint32_t tick;
 } BrickContext;

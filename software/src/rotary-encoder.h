@@ -34,15 +34,20 @@
 #define FID_GET_DEBOUNCE_PERIOD 7
 #define FID_COUNT 8
 #define FID_COUNT_REACHED 9
-
-#define FID_LAST 7
+#define FID_IS_PRESSED 10
+#define FID_PRESSED 11
+#define FID_RELEASED 12
 
 typedef struct {
 	MessageHeader header;
-	bool reset;
-} __attribute__((__packed__)) GetCount;
+	bool value;
+} __attribute__((__packed__)) BoolMessage;
 
-int32_t update_count(const int32_t value);
+typedef struct {
+	MessageHeader header;
+} __attribute__((__packed__)) StandardMessage;
+
+void is_pressed(const ComType com, const StandardMessage *sm);
 
 void invocation(const ComType com, const uint8_t *data);
 void constructor(void);
