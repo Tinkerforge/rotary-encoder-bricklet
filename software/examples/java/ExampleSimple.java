@@ -10,13 +10,13 @@ public class ExampleSimple {
 	//       might normally want to catch are described in the documentation
 	public static void main(String args[]) throws Exception {
 		IPConnection ipcon = new IPConnection(); // Create IP connection
-		BrickletRotaryEncoder rp = new BrickletRotaryEncoder(UID, ipcon); // Create device object
+		BrickletRotaryEncoder re = new BrickletRotaryEncoder(UID, ipcon); // Create device object
 
 		ipcon.connect(host, port); // Connect to brickd
 		// Don't use device before ipcon is connected
 
 		// Get current count without reset
-		int count = rp.getCount(false); // Can throw com.tinkerforge.TimeoutException
+		int count = re.getCount(false); // Can throw com.tinkerforge.TimeoutException
 
 		System.out.println("Count: " + count);
 

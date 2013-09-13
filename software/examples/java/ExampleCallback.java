@@ -10,7 +10,7 @@ public class ExampleCallback {
 	//       might normally want to catch are described in the documentation
 	public static void main(String args[]) throws Exception {
 		IPConnection ipcon = new IPConnection(); // Create IP connection
-		BrickletRotaryEncoder rp = new BrickletRotaryEncoder(UID, ipcon); // Create device object
+		BrickletRotaryEncoder re = new BrickletRotaryEncoder(UID, ipcon); // Create device object
 
 		ipcon.connect(host, port); // Connect to brickd
 		// Don't use device before ipcon is connected
@@ -18,10 +18,10 @@ public class ExampleCallback {
 		// Set Period for count callback to 0.05s (50ms)
 		// Note: The count callback is only called every 50ms if the
 		//       count has changed since the last call!
-		rp.setCountCallbackPeriod(50);
+		re.setCountCallbackPeriod(50);
 
 		// Add and implement count listener
-		rp.addCountListener(new BrickletRotaryEncoder.CountListener() {
+		re.addCountListener(new BrickletRotaryEncoder.CountListener() {
 			public void count(int count) {
 				System.out.println("Count: " + count);
 			}
