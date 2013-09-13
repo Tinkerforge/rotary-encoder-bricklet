@@ -10,7 +10,7 @@ type
   TExample = class
   private
     ipcon: TIPConnection;
-    rp: TBrickletRotaryEncoder;
+    re: TBrickletRotaryEncoder;
   public
     procedure Execute;
   end;
@@ -30,14 +30,14 @@ begin
   ipcon := TIPConnection.Create;
 
   { Create device object }
-  rp := TBrickletRotaryEncoder.Create(UID, ipcon);
+  re := TBrickletRotaryEncoder.Create(UID, ipcon);
 
   { Connect to brickd }
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
   { Get current count without reset }
-  count := rp.GetCount(false);
+  count := re.GetCount(false);
   WriteLn(Format('Count: %d', [count]));
 
   WriteLn('Press key to exit');
