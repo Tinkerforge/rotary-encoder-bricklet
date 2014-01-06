@@ -100,6 +100,8 @@ void invocation(const ComType com, const uint8_t *data) {
 }
 
 void constructor(void) {
+	_Static_assert(sizeof(BrickContext) <= BRICKLET_CONTEXT_MAX_SIZE, "BrickContext too big");
+
 	simple_constructor();
 
     PIN_ENCODER_A.type = PIO_INPUT;
