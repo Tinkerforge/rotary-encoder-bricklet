@@ -6,9 +6,9 @@ require_once('Tinkerforge/BrickletRotaryEncoder.php');
 use Tinkerforge\IPConnection;
 use Tinkerforge\BrickletRotaryEncoder;
 
-$host = 'localhost';
-$port = 4223;
-$uid = 'XYZ'; // Change to your UID
+const HOST = 'localhost';
+const PORT = 4223;
+const UID = 'XYZ'; // Change to your UID
 
 # Callback function for count callback 
 function cb_count($count)
@@ -17,9 +17,9 @@ function cb_count($count)
 }
 
 $ipcon = new IPConnection(); // Create IP connection
-$encoder = new BrickletRotaryEncoder($uid, $ipcon); // Create device object
+$encoder = new BrickletRotaryEncoder(UID, $ipcon); // Create device object
 
-$ipcon->connect($host, $port); // Connect to brickd
+$ipcon->connect(HOST, PORT); // Connect to brickd
 // Don't use device before ipcon is connected
 
 // Set Period for count callback to 0.05s (50ms)
