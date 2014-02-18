@@ -1,12 +1,11 @@
-var IPConnection = require('Tinkerforge/IPConnection');
-var BrickletRotaryEncoder = require('Tinkerforge/BrickletRotaryEncoder');
+var Tinkerforge = require('tinkerforge');
 
 var HOST = 'localhost';
 var PORT = 4223;
 var UID = 'utz';// Change to your UID
 
-var ipcon = new IPConnection();// Create IP connection
-var encoder = new BrickletRotaryEncoder(UID, ipcon);// Create device object
+var ipcon = new Tinkerforge.IPConnection();// Create IP connection
+var encoder = new Tinkerforge.BrickletRotaryEncoder(UID, ipcon);// Create device object
 
 ipcon.connect(HOST, PORT,
     function(error) {
@@ -15,7 +14,7 @@ ipcon.connect(HOST, PORT,
 );// Connect to brickd
 
 // Don't use device before ipcon is connected
-ipcon.on(IPConnection.CALLBACK_CONNECTED,
+ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
     function(connectReason) {
         // Set Period for count callback to 0.05s (50ms)
         // Note: The count callback is only called every 50ms if the 
@@ -25,7 +24,7 @@ ipcon.on(IPConnection.CALLBACK_CONNECTED,
 );
 
 //Register count callback
-encoder.on(BrickletRotaryEncoder.CALLBACK_COUNT,
+encoder.on(Tinkerforge.BrickletRotaryEncoder.CALLBACK_COUNT,
     //Callback function for count callback
     function(count) {
         console.log('Count: '+count);
