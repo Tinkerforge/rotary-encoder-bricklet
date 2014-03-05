@@ -14,7 +14,7 @@ class Example
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Get current count of encoder  without reset
+		// Get current count of encoder without reset
 		int count = encoder.GetCount(false);
 
 		System.Console.WriteLine("Count: " + count);
