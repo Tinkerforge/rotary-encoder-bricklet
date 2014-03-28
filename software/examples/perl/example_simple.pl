@@ -14,7 +14,7 @@ $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Don't use device before ipcon is connected
 
 # Get current count of encoder without reset 
-$count = $encoder->get_count(0);
+my $count = $encoder->get_count(0);
 
 print "Count: $count";
 
