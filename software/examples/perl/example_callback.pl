@@ -14,7 +14,8 @@ my $encoder = Tinkerforge::BrickletRotaryEncoder->new(&UID, $ipcon); # Create de
 sub cb_count
 {
     my ($count) = @_;
-    print "\nCount: $count\n";
+
+    print "Count: $count\n";
 }
 
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
@@ -28,7 +29,7 @@ $encoder->set_count_callback_period(50);
 # Register count callback to function cb_count
 $encoder->register_callback($encoder->CALLBACK_COUNT, 'cb_count');
 
-print "\nPress any key to exit...\n";
+print "Press any key to exit...\n";
 <STDIN>;
 $ipcon->disconnect();
 

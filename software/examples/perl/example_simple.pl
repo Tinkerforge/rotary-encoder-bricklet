@@ -15,10 +15,9 @@ $ipcon->connect(&HOST, &PORT); # Connect to brickd
 
 # Get current count of encoder without reset 
 my $count = $encoder->get_count(0);
-
 print "Count: $count";
 
-print "\nPress any key to exit...\n";
+print "Press any key to exit...\n";
 <STDIN>;
 $ipcon->disconnect();
 
