@@ -18,13 +18,13 @@ function matlab_example_callback
     encoder.setCountCallbackPeriod(50);
 
     % Register count callback to function cb_count
-    set(encoder, 'CountCallback', @(h, e)cb_count(e.count));
+    set(encoder, 'CountCallback', @(h, e) cb_count(e));
 
-    input('\nPress any key to exit...\n', 's');
+    input('Press any key to exit...\n', 's');
     ipcon.disconnect();
 end
 
 % Callback function for count callback
-function cb_count(count)
-    fprintf('Count: %g\n', count);
+function cb_count(e)
+    fprintf('Count: %g\n', e.count);
 end

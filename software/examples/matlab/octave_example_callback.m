@@ -17,13 +17,13 @@ function octave_example_callback
     encoder.setCountCallbackPeriod(50);
 
     % Register count callback to function cb_count
-    encoder.addCountListener("cb_count");
+    encoder.addCountCallback(@cb_count);
 
-    input("\nPress any key to exit...\n", "s");
+    input("Press any key to exit...\n", "s");
     ipcon.disconnect();
 end
 
 % Callback function for count callback
-function cb_count(count)
-    fprintf("Count: %g\n", count);
+function cb_count(e)
+    fprintf("Count: %g\n", e.count);
 end

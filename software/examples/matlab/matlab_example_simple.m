@@ -14,10 +14,8 @@ function matlab_example_callback
 
     % Get current count of encoder without reset 
     count = encoder.getCount(false);
-
     fprintf('Count: %g\n', count);
 
-    input('\nPress any key to exit...\n', 's');
+    input('Press any key to exit...\n', 's');
     ipcon.disconnect();
 end
-
