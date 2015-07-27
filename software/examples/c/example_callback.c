@@ -20,8 +20,8 @@ int main() {
 	ipcon_create(&ipcon);
 
 	// Create device object
-	RotaryEncoder encoder;
-	rotary_encoder_create(&encoder, UID, &ipcon); 
+	RotaryEncoder re;
+	rotary_encoder_create(&re, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {
@@ -30,13 +30,13 @@ int main() {
 	}
 	// Don't use device before ipcon is connected
 
-	// Set Period for count callback to 0.05s (50ms)
-	// Note: The count callback is only called every 50ms if the 
-	//       count has changed since the last call!
-	rotary_encoder_set_count_callback_period(&encoder, 50);
+	// Set period for count callback to 0.05s (50ms)
+	// Note: The count callback is only called every 0.05 seconds
+	//       if the count has changed since the last call!
+	rotary_encoder_set_count_callback_period(&re, 50);
 
 	// Register count callback to function cb_count
-	rotary_encoder_register_callback(&encoder,
+	rotary_encoder_register_callback(&re,
 	                                 ROTARY_ENCODER_CALLBACK_COUNT,
 	                                 (void *)cb_count,
 	                                 NULL);

@@ -13,8 +13,8 @@ int main() {
 	ipcon_create(&ipcon);
 
 	// Create device object
-	RotaryEncoder encoder;
-	rotary_encoder_create(&encoder, UID, &ipcon); 
+	RotaryEncoder re;
+	rotary_encoder_create(&re, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {
@@ -25,8 +25,8 @@ int main() {
 
 	// Get current count without reset
 	int32_t count;
-	if(rotary_encoder_get_count(&encoder, false, &count) < 0) {
-		fprintf(stderr, "Could not get value, probably timeout\n");
+	if(rotary_encoder_get_count(&re, false, &count) < 0) {
+		fprintf(stderr, "Could not get count, probably timeout\n");
 		exit(1);
 	}
 

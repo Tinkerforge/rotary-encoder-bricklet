@@ -1,5 +1,5 @@
-import com.tinkerforge.BrickletRotaryEncoder;
 import com.tinkerforge.IPConnection;
+import com.tinkerforge.BrickletRotaryEncoder;
 
 public class ExampleSimple {
 	private static final String HOST = "localhost";
