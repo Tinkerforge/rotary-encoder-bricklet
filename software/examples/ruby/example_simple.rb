@@ -16,7 +16,7 @@ re = BrickletRotaryEncoder.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Get current count of encoder without reset 
+# Get current count without reset
 count = re.get_count false
 puts "Count: #{count}"
 

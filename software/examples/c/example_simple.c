@@ -26,7 +26,7 @@ int main() {
 	// Get current count without reset
 	int32_t count;
 	if(rotary_encoder_get_count(&re, false, &count) < 0) {
-		fprintf(stderr, "Could not get count, probably timeout\n");
+		fprintf(stderr, "Could not get count without reset, probably timeout\n");
 		exit(1);
 	}
 

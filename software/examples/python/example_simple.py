@@ -15,7 +15,7 @@ if __name__ == "__main__":
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
 
-    # Get current count of encoder without reset 
+    # Get current count without reset
     count = re.get_count(False)
     print('Count: ' + str(count))
 
