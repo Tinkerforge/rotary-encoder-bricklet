@@ -6,11 +6,11 @@ PORT = 4223
 UID = "XYZ" # Change to your UID
 
 from tinkerforge.ip_connection import IPConnection
-from tinkerforge.bricklet_rotary_encoder import RotaryEncoder
+from tinkerforge.bricklet_rotary_encoder import BrickletRotaryEncoder
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
-    re = RotaryEncoder(UID, ipcon) # Create device object
+    re = BrickletRotaryEncoder(UID, ipcon) # Create device object
 
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
