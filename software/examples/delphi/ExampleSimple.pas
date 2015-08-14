@@ -24,7 +24,7 @@ var
   e: TExample;
 
 procedure TExample.Execute;
-var count: integer;
+var count: longint;
 begin
   { Create IP connection }
   ipcon := TIPConnection.Create;

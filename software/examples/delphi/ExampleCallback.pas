@@ -12,7 +12,7 @@ type
     ipcon: TIPConnection;
     re: TBrickletRotaryEncoder;
   public
-    procedure CountCB(sender: TBrickletRotaryEncoder; const count: integer);
+    procedure CountCB(sender: TBrickletRotaryEncoder; const count: longint);
     procedure Execute;
   end;
 
@@ -24,8 +24,8 @@ const
 var
   e: TExample;
 
-{ Callback function for count callback }
-procedure TExample.CountCB(sender: TBrickletRotaryEncoder; const count: integer);
+{ Callback procedure for count callback }
+procedure TExample.CountCB(sender: TBrickletRotaryEncoder; const count: longint);
 begin
   WriteLn(Format('Count: %d', [count]));
 end;
@@ -42,9 +42,9 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Set Period for count callback to 0.05s (50ms)
-    Note: The count callback is only called every 50ms if the
-          count has changed since the last call! }
+  { Set period for count callback to 0.05s (50ms)
+    Note: The count callback is only called every 0.05 seconds
+          if the count has changed since the last call! }
   re.SetCountCallbackPeriod(50);
 
   { Register count callback to procedure CountCB }
