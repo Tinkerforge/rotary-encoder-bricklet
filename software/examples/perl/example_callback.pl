@@ -15,7 +15,7 @@ sub cb_count
 {
     my ($count) = @_;
 
-    print "Count: " . $count . "\n";
+    print "Count: $count\n";
 }
 
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
