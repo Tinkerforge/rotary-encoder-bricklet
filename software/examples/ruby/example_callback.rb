@@ -16,15 +16,15 @@ re = BrickletRotaryEncoder.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Set period for count callback to 0.05s (50ms)
-# Note: The count callback is only called every 0.05 seconds
-#       if the count has changed since the last call!
-re.set_count_callback_period 50
-
 # Register count callback
 re.register_callback(BrickletRotaryEncoder::CALLBACK_COUNT) do |count|
   puts "Count: #{count}"
 end
+
+# Set period for count callback to 0.05s (50ms)
+# Note: The count callback is only called every 0.05 seconds
+#       if the count has changed since the last call!
+re.set_count_callback_period 50
 
 puts 'Press key to exit'
 $stdin.gets

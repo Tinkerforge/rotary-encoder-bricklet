@@ -1,3 +1,4 @@
+Imports System
 Imports Tinkerforge
 
 Module ExampleSimple
@@ -13,11 +14,11 @@ Module ExampleSimple
         ' Don't use device before ipcon is connected
 
         ' Get current count without reset
-        Dim count As Integer = re.GetCount(false)
-        System.Console.WriteLine("Count: " + count.ToString())
+        Dim count As Integer = re.GetCount(False)
+        Console.WriteLine("Count: " + count.ToString())
 
-        System.Console.WriteLine("Press key to exit")
-        System.Console.ReadLine()
+        Console.WriteLine("Press key to exit")
+        Console.ReadLine()
         ipcon.Disconnect()
     End Sub
 End Module

@@ -42,13 +42,13 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
+  { Register count callback to procedure CountCB }
+  re.OnCount := {$ifdef FPC}@{$endif}CountCB;
+
   { Set period for count callback to 0.05s (50ms)
     Note: The count callback is only called every 0.05 seconds
           if the count has changed since the last call! }
   re.SetCountCallbackPeriod(50);
-
-  { Register count callback to procedure CountCB }
-  re.OnCount := {$ifdef FPC}@{$endif}CountCB;
 
   WriteLn('Press key to exit');
   ReadLn;

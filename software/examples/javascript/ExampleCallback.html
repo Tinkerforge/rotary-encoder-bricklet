@@ -31,27 +31,28 @@
                     ipcon.disconnect();
                 }
                 ipcon = new Tinkerforge.IPConnection(); // Create IP connection
-                var encoder = new Tinkerforge.BrickletRotaryEncoder(UID, ipcon); // Create device object
+                var re = new Tinkerforge.BrickletRotaryEncoder(UID, ipcon); // Create device object
                 ipcon.connect(HOST, PORT,
                     function(error) {
-                        textArea.value += 'Error: '+error+ '\n';
+                        textArea.value += 'Error: ' + error + '\n';
                     }
                 ); // Connect to brickd
                 // Don't use device before ipcon is connected
 
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-                    function(connectReason) {
-                        // Set Period for count callback to 0.05s (50ms)
-                        // Note: The count callback is only called every 50ms if the
-                        // count has changed since the last call!
-                        encoder.setCountCallbackPeriod(50);
+                    function (connectReason) {
+                        // Set period for count callback to 0.05s (50ms)
+                        // Note: The count callback is only called every 0.05 seconds
+                        //       if the count has changed since the last call!
+                        re.setCountCallbackPeriod(50);
                     }
                 );
+
                 // Register count callback
-                encoder.on(Tinkerforge.BrickletRotaryEncoder.CALLBACK_COUNT,
+                re.on(Tinkerforge.BrickletRotaryEncoder.CALLBACK_COUNT,
                     // Callback function for count callback
-                    function(count) {
-                        textArea.value += 'Count: '+count+'\n';
+                    function (count) {
+                        textArea.value += 'Count: ' + count + '\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );

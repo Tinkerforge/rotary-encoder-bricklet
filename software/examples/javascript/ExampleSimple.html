@@ -31,23 +31,23 @@
                     ipcon.disconnect();
                 }
                 ipcon = new Tinkerforge.IPConnection(); // Create IP connection
-                var encoder = new Tinkerforge.BrickletRotaryEncoder(UID, ipcon); // Create device object
+                var re = new Tinkerforge.BrickletRotaryEncoder(UID, ipcon); // Create device object
                 ipcon.connect(HOST, PORT,
                     function(error) {
-                        textArea.value += 'Error: '+error+ '\n';
+                        textArea.value += 'Error: ' + error + '\n';
                     }
                 ); // Connect to brickd
                 // Don't use device before ipcon is connected
 
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-                    function(connectReason) {
-                        // Get current count of encoder without reset
-                        encoder.getCount(false,
-                            function(count) {
-                                textArea.value += 'Count: '+count+'\n';
+                    function (connectReason) {
+                        // Get current count without reset
+                        re.getCount(false,
+                            function (count) {
+                                textArea.value += 'Count: ' + count + '\n';
                             },
-                            function(error) {
-                                textArea.value += 'Error: '+error+'\n';
+                            function (error) {
+                                textArea.value += 'Error: ' + error + '\n';
                             }
                         );
                     }

@@ -1,3 +1,4 @@
+using System;
 using Tinkerforge;
 
 class Example
@@ -16,10 +17,10 @@ class Example
 
 		// Get current count without reset
 		int count = re.GetCount(false);
-		System.Console.WriteLine("Count: " + count);
+		Console.WriteLine("Count: " + count);
 
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

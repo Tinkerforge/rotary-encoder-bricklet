@@ -15,8 +15,8 @@ $ipcon->connect(&HOST, &PORT); # Connect to brickd
 
 # Get current count without reset
 my $count = $re->get_count(0);
-print "Count: " . $count . "\n";
+print "Count: $count\n";
 
-print "Press any key to exit...\n";
+print "Press key to exit\n";
 <STDIN>;
 $ipcon->disconnect();

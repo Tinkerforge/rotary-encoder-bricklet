@@ -1,21 +1,21 @@
-function matlab_example_callback()
+function matlab_example_simple()
     import com.tinkerforge.IPConnection;
     import com.tinkerforge.BrickletRotaryEncoder;
 
     HOST = 'localhost';
     PORT = 4223;
-    UID = 'kHn'; % Change to your UID
-    
+    UID = 'XYZ'; % Change to your UID
+
     ipcon = IPConnection(); % Create IP connection
-    encoder = BrickletRotaryEncoder(UID, ipcon); % Create device object
+    re = BrickletRotaryEncoder(UID, ipcon); % Create device object
 
     ipcon.connect(HOST, PORT); % Connect to brickd
     % Don't use device before ipcon is connected
 
-    % Get current count of encoder without reset 
-    count = encoder.getCount(false);
-    fprintf('Count: %g\n', count);
+    % Get current count without reset
+    count = re.getCount(false);
+    fprintf('Count: %i\n', count);
 
-    input('Press any key to exit...\n', 's');
+    input('Press key to exit\n', 's');
     ipcon.disconnect();
 end

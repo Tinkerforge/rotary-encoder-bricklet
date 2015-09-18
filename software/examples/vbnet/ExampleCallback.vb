@@ -1,3 +1,4 @@
+Imports System
 Imports Tinkerforge
 
 Module ExampleCallback
@@ -5,9 +6,9 @@ Module ExampleCallback
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change to your UID
 
-    ' Callback function for count callback
+    ' Callback subroutine for count callback
     Sub CountCB(ByVal sender As BrickletRotaryEncoder, ByVal count As Integer)
-        System.Console.WriteLine("Count: " + count.ToString())
+        Console.WriteLine("Count: " + count.ToString())
     End Sub
 
     Sub Main()
@@ -17,16 +18,16 @@ Module ExampleCallback
         ipcon.Connect(HOST, PORT) ' Connect to brickd
         ' Don't use device before ipcon is connected
 
+        ' Register count callback to subroutine CountCB
+        AddHandler re.Count, AddressOf CountCB
+
         ' Set period for count callback to 0.05s (50ms)
         ' Note: The count callback is only called every 0.05 seconds
         '       if the count has changed since the last call!
         re.SetCountCallbackPeriod(50)
 
-        ' Register count callback to function CountCB
-        AddHandler re.Count, AddressOf CountCB
-
-        System.Console.WriteLine("Press key to exit")
-        System.Console.ReadLine()
+        Console.WriteLine("Press key to exit")
+        Console.ReadLine()
         ipcon.Disconnect()
     End Sub
 End Module

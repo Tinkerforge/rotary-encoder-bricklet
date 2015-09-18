@@ -11,14 +11,13 @@ const PORT = 4223;
 const UID = 'XYZ'; // Change to your UID
 
 $ipcon = new IPConnection(); // Create IP connection
-$encoder = new BrickletRotaryEncoder(UID, $ipcon); // Create device object
+$re = new BrickletRotaryEncoder(UID, $ipcon); // Create device object
 
 $ipcon->connect(HOST, PORT); // Connect to brickd
 // Don't use device before ipcon is connected
 
-// Get current count of encoder without reset 
-$count = $encoder->getCount(false);
-
+// Get current count without reset
+$count = $re->getCount(FALSE);
 echo "Count: $count\n";
 
 echo "Press key to exit\n";

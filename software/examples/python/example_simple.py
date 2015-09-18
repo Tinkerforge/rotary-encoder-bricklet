@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     # Get current count without reset
     count = re.get_count(False)
-    print('Count: ' + str(count))
+    print("Count: " + str(count))
 
-    raw_input('Press key to exit\n') # Use input() in Python 3
+    raw_input("Press key to exit\n") # Use input() in Python 3
     ipcon.disconnect()

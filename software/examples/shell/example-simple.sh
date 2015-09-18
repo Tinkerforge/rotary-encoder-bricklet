@@ -1,8 +1,7 @@
 #!/bin/sh
-# connects to localhost:4223 by default, use --host and --port to change it
+# Connects to localhost:4223 by default, use --host and --port to change this
 
-# change to your UID
-uid=XYZ
+uid=XYZ # Change to your UID
 
-# get current count without reset 
+# Get current count without reset
 tinkerforge call rotary-encoder-bricklet $uid get-count false

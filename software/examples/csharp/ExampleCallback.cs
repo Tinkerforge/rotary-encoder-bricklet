@@ -1,3 +1,4 @@
+using System;
 using Tinkerforge;
 
 class Example
@@ -9,7 +10,7 @@ class Example
 	// Callback function for count callback
 	static void CountCB(BrickletRotaryEncoder sender, int count)
 	{
-		System.Console.WriteLine("Count: " + count);
+		Console.WriteLine("Count: " + count);
 	}
 
 	static void Main()
@@ -20,16 +21,16 @@ class Example
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
+		// Register count callback to function CountCB
+		re.Count += CountCB;
+
 		// Set period for count callback to 0.05s (50ms)
 		// Note: The count callback is only called every 0.05 seconds
 		//       if the count has changed since the last call!
 		re.SetCountCallbackPeriod(50);
 
-		// Register count callback to function CountCB
-		re.Count += CountCB;
-
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

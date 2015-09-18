@@ -1,13 +1,16 @@
 #!/bin/sh
-# connects to localhost:4223 by default, use --host and --port to change it
+# Connects to localhost:4223 by default, use --host and --port to change this
 
-# change to your UID
-uid=XYZ
+uid=XYZ # Change to your UID
 
-# set period for count callback to 0.05s (50ms)
-# note: the count callback is only called every second if the
-#       count has changed since the last call!
+# Handle incoming count callbacks
+tinkerforge dispatch rotary-encoder-bricklet $uid count &
+
+# Set period for count callback to 0.05s (50ms)
+# Note: The count callback is only called every 0.05 seconds
+#       if the count has changed since the last call!
 tinkerforge call rotary-encoder-bricklet $uid set-count-callback-period 50
 
-# handle incoming count callbacks
-tinkerforge dispatch rotary-encoder-bricklet $uid count
+echo "Press key to exit"; read dummy
+
+kill -- -$$ # Stop callback dispatch in background
