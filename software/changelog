@@ -4,5 +4,5 @@
 2013-12-19: 2.0.1 (b5da26e)
 - Fix wrong length for GetDebounce packet (through brickletlib)
 
-2016-04-25: 2.0.2 (<unknown>)
+2016-04-25: 2.0.2 (d2ac3b8)
 - Fix inverted is_pressed return value
