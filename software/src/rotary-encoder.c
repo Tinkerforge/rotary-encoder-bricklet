@@ -58,7 +58,7 @@ void is_pressed(const ComType com, const StandardMessage *sm) {
 	BoolMessage bm;
 	bm.header        = sm->header;
 	bm.header.length = sizeof(BoolMessage);
-	bm.value         = PIN_ENCODER_BUTTON.pio->PIO_PDSR & PIN_ENCODER_BUTTON.mask;
+	bm.value         = !(PIN_ENCODER_BUTTON.pio->PIO_PDSR & PIN_ENCODER_BUTTON.mask);
 
 	BA->send_blocking_with_timeout(&bm,
 	                               sizeof(BoolMessage),
@@ -118,7 +118,7 @@ void constructor(void) {
 
     BC->encoder_value_last = PIN_ENCODER_A.pio->PIO_PDSR & PIN_ENCODER_A.mask ? 1 : 0;
     BC->encoder_value_last |= PIN_ENCODER_B.pio->PIO_PDSR & PIN_ENCODER_B.mask ? 2 : 0;
-    BC->pressed = false;
+    BC->pressed = !(PIN_ENCODER_BUTTON.pio->PIO_PDSR & PIN_ENCODER_BUTTON.mask);
 }
 
 void destructor(void) {
