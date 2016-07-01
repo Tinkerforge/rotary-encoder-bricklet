@@ -8,7 +8,7 @@ use Tinkerforge\BrickletRotaryEncoder;
 
 const HOST = 'localhost';
 const PORT = 4223;
-const UID = 'XYZ'; // Change to your UID
+const UID = 'XYZ'; // Change XYZ to the UID of your Rotary Encoder Bricklet
 
 // Callback function for count callback
 function cb_count($count)

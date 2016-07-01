@@ -5,7 +5,7 @@ use Tinkerforge::BrickletRotaryEncoder;
 
 use constant HOST => 'localhost';
 use constant PORT => 4223;
-use constant UID => 'XYZ'; # Change to your UID
+use constant UID => 'XYZ'; # Change XYZ to the UID of your Rotary Encoder Bricklet
 
 # Callback subroutine for count callback
 sub cb_count
