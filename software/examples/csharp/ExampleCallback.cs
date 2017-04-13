@@ -22,7 +22,7 @@ class Example
 		// Don't use device before ipcon is connected
 
 		// Register count callback to function CountCB
-		re.Count += CountCB;
+		re.CountCallback += CountCB;
 
 		// Set period for count callback to 0.05s (50ms)
 		// Note: The count callback is only called every 0.05 seconds
