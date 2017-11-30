@@ -13,7 +13,7 @@ ipcon@Connect[host,port]
 (*Callback function for count callback*)
 CountCB[sender_,count_]:=
  Print["Count: "<>ToString[count]]
-AddEventHandler[re@Count,CountCB]
+AddEventHandler[re@CountCallback,CountCB]
 
 (*Set period for count callback to 0.05s (50ms)*)
 (*Note: The count callback is only called every 0.05 seconds*)

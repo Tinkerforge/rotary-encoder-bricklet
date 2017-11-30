@@ -19,7 +19,7 @@ Module ExampleCallback
         ' Don't use device before ipcon is connected
 
         ' Register count callback to subroutine CountCB
-        AddHandler re.Count, AddressOf CountCB
+        AddHandler re.CountCallback, AddressOf CountCB
 
         ' Set period for count callback to 0.05s (50ms)
         ' Note: The count callback is only called every 0.05 seconds
