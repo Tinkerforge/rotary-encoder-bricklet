@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"tinkerforge/ipconnection"
-	"tinkerforge/rotary_encoder_bricklet"
+	"github.com/tinkerforge/go-api-bindings/ipconnection"
+	"github.com/tinkerforge/go-api-bindings/rotary_encoder_bricklet"
 )
 
 const ADDR string = "localhost:4223"
