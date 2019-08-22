@@ -33,7 +33,7 @@ int main(void) {
 	// Register count callback to function cb_count
 	rotary_encoder_register_callback(&re,
 	                                 ROTARY_ENCODER_CALLBACK_COUNT,
-	                                 (void *)cb_count,
+	                                 (void (*)(void))cb_count,
 	                                 NULL);
 
 	// Set period for count callback to 0.05s (50ms)
